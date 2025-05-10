@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Button, StyleSheet, View, TextInput, Text } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { add } from "../../store/slices/taks";
@@ -15,13 +15,20 @@ export function Tasks() {
 
   const handlerPressModal = useCallback(() => {
     dispatch(add(text));
-    setText("");
     setVisible(false);
   }, [text, dispatch]);
 
+  const handlerButton = () => {
+    setVisible(true);
+    setText("");
+  };
+
   return (
     <View style={styles.container}>
-      <Button onPress={() => setVisible(true)} title={"New Task"} />
+      <Button
+        onPress={() => handlerButton()}
+        title={"New Task"}
+      />
       {tasks.map((task, index) => (
         <View key={`${task}-${index}`}>
           <Text>{task}</Text>

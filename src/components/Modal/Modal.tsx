@@ -16,7 +16,14 @@ interface Props {
   onPressBotton: () => void;
 }
 
-const Modal = ({ testID,visible, setVisible, text, setText, onPressBotton }: Props) => {
+const Modal = ({
+  testID,
+  visible,
+  setVisible,
+  text,
+  setText,
+  onPressBotton,
+}: Props) => {
   return (
     <ModalNative
       testID={testID}
@@ -31,13 +38,11 @@ const Modal = ({ testID,visible, setVisible, text, setText, onPressBotton }: Pro
             style={styles.input}
             placeholder="descripcion"
             value={text}
-            onChangeText={setText}
+            onChangeText={(text) => {
+              setText(text);
+            }}
           />
-          <Button
-            title="Add"
-            disabled={!text}
-            onPress={onPressBotton}
-          />
+          <Button title="Add" disabled={!text} onPress={onPressBotton} />
         </View>
       </View>
     </ModalNative>
