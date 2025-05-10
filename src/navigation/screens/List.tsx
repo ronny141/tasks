@@ -2,7 +2,6 @@ import React from 'react';
 import { Text } from '@react-navigation/elements';
 import { StyleSheet, View } from 'react-native';
 
-
 export function List() {
   return (
     <View style={styles.container}>

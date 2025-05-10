@@ -6,8 +6,7 @@ import { App } from '../App'; // importa el componente sin default
 import { Provider } from 'react-redux';
 import { store } from '../store/store';
 import getContainerRoot from '../__mocks__/helpers/getContainerRoot';
-
-
+import * as SplashScreen from 'expo-splash-screen';
 
 jest.mock('expo-splash-screen', () => ({
   preventAutoHideAsync: jest.fn(),
@@ -37,4 +36,5 @@ describe('App', () => {
     const container = getContainerRoot(UNSAFE_root);
     expect(container).toBeTruthy();
   });
+
 });
